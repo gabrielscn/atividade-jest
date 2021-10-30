@@ -13,6 +13,10 @@ exports.post = (req, res, next) => {
   if (isNaN(idade)) {
     res.status(400).send({'mensagem': 'A idade do animal deve ser um número.'});
   }
+  
+  if (nome.length < 3){
+    res.status(400).send({'mensagem': 'The name should have at least 3 characters.'});
+  }
 
   // Novo animal a ser inserido
   const novoAnimal = {
